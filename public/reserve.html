@@ -16,7 +16,7 @@
             <h2 class="text-center">Make your reservation</h2>
             <br>
             <div class="text-center">
-                <a href="tables.html"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
+                <a href="/tables"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
                 <a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
             </div>
         </div>
@@ -53,16 +53,12 @@
         </div>
         <footer class="footer">
           <div class="container">
-            <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> </p>
+            <p><a href="/data/tables">API Table Link</a> | <a href="/data/waitlist">API Wait List</a> </p>
           </div>
         </footer>
     </div>
-    <script src="assets/app.js"></script>
-</body>
-</html>
-<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
-<script type="text/javascript">
-    // In this code below we create the Front-end Javascript which "POSTS" our form data to our express server.
+    <script>
+        // In this code below we create the Front-end Javascript which "POSTS" our form data to our express server.
     // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
     // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
     // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
@@ -100,4 +96,7 @@
         });
 return false;
 });
-</script>
+    </script>
+</body>
+</html>
+
