@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // dummy data
-const customers = [{
+const waitlist = [{
         customerName: "Ahmed",
         customerEmail: "ahmed@example.com",
         customerID: "afhaque89",
@@ -73,26 +73,36 @@ app.get('/tables', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/tables.html'));
 });
 
+// tables.json
+// app.get('/data/tables', (req, res) => {
+// 	res.sendFile(path.join(__dirname, '/data/tables.json'));
+// });
+
+// waitlist.json
+// app.get('/data/waitlist', (req, res) => {
+// 	res.sendFile(path.join(__dirname, '/data/waitlist.json'));
+// });
+
 // get customer data
-app.get("/data/customers?", (req, res) => {
-    const chosen = req.params.customers
+app.get("/data/waitlist?", (req, res) => {
+    const chosen = req.params.waitlist
 
 
     if (chosen) {
         console.log(chosen);
 
-        for (let i = 0; i < customers.length; i++) {
-            if (chosen === customers[i].routeName) {
-                return res.json(customers[i]);
+        for (let i = 0; i < waitlist.length; i++) {
+            if (chosen === waitlist[i].routeName) {
+                return res.json(waitlist[i]);
             } 
            }
            return res.json(false);
         }
-    return res.json(customers);
+    return res.json(waitlist);
 });
 
 // create reservation
-app.post('/data/reservation', (req, res) => {
+app.post('/data/tables', (req, res) => {
 	const newReservation = req.body;
 	newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
 
