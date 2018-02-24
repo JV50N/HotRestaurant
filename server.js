@@ -84,7 +84,7 @@ app.get('/tables', (req, res) => {
 // });
 
 // get customer data
-app.get("/data/waitlist?", (req, res) => {
+app.get("/data/:waitlist?", (req, res) => {
     const chosen = req.params.waitlist
 
 
@@ -96,26 +96,26 @@ app.get("/data/waitlist?", (req, res) => {
                 return res.json(waitlist[i]);
             } 
            }
-           return res.json(false);
+           // return res.json(false);
         }
     return res.json(waitlist);
 });
 
 // create reservation
-app.post('/data/tables', (req, res) => {
+app.post('/data/:tables?', (req, res) => {
 	const newReservation = req.body;
 	newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
 
 	console.log(newReservation);
 
-	customers.push(newReservation);
+	waitlist.push(newReservation);
 
 	res.json(newReservation);
 });
 
 // Note how we export the array. This makes it accessible to other files using require.
 
-module.exports = customers;
+module.exports = waitlist;
 
 
 // =============================================================================
