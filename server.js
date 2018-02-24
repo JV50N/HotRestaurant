@@ -91,6 +91,18 @@ app.get("/api/customers?", (req, res) => {
     return res.json(customers);
 });
 
+// create reservation
+app.post('/api/reservation', (req, res) => {
+	const newReservation = req.body;
+	newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
+
+	console.log(newReservation);
+
+	customers.push(newReservation);
+
+	res.json(newReservation);
+});
+
 // Note how we export the array. This makes it accessible to other files using require.
 
 module.exports = customers;
@@ -104,3 +116,7 @@ module.exports = customers;
 app.listen(PORT, function() {
     console.log("App listening on PORT: " + PORT);
 });
+
+//=======================================
+//
+
