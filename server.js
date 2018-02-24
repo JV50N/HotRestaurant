@@ -74,7 +74,7 @@ app.get('/tables', (req, res) => {
 });
 
 // get customer data
-app.get("/api/customers?", (req, res) => {
+app.get("/data/customers?", (req, res) => {
     const chosen = req.params.customers
 
 
@@ -92,7 +92,7 @@ app.get("/api/customers?", (req, res) => {
 });
 
 // create reservation
-app.post('/api/reservation', (req, res) => {
+app.post('/data/reservation', (req, res) => {
 	const newReservation = req.body;
 	newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
 
