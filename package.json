@@ -1,0 +1,20 @@
+{
+  "name": "hotrestaurant",
+  "version": "1.0.0",
+  "description": "Hot Restaurant App, Reserve your table today!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JGonc189/HotRestaurant.git"
+  },
+  "author": "Jason M. Goncalves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JGonc189/HotRestaurant/issues"
+  },
+  "homepage": "https://github.com/JGonc189/HotRestaurant#readme"
+}
