@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container bg-warning">
         <div class="jumbotron">
             <h1 class="text-center"><span class="glyphicon glyphicon-fire"></span> Hot Restaurant</h1>
             <hr>
@@ -17,7 +17,7 @@
             <br>
             <div class="text-center">
                 <a href="/reserve"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
-                <a href="index.html"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+                <a href="/index"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
             </div>
         </div>
         <div class="row">
@@ -43,12 +43,14 @@
         <footer class="footer">
           <div class="container">
             <p>Control Panel</p>
-            <p><a href="" id="clear">Clear Table</a> | <a href="data/tables.json">API Table Link</a> | <a href="data/waitlist.json">API Wait List</a></p>
+            <p><a href="" id="clear">Clear Table</a> | <a href="api/tables">API Table Link</a> | <a href="api/waitlist">API Wait List</a> | <a href="https://github.com/Code4GG/HotRestaurant/tree/master">Github Repo</a></p>
           </div>
         </footer>
     </div>
-    <script>
-        // In this code, jQuery is used to "download" the data from our server
+</body>
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
+<script type="text/javascript">
+    // In this code, jQuery is used to "download" the data from our server
     // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
     // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
     function runTableQuery(){
@@ -56,11 +58,11 @@
         // We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
         var currentURL = window.location.origin;
         // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-        $.ajax({url: currentURL + "/data/tables", method: "GET"})
+        $.ajax({url: currentURL + "/api/tables", method: "GET"})
             .done(function(tableData) {
                 // Here we are logging the URL so we have access to it for troubleshooting
                 console.log("------------------------------------");
-                console.log("URL: " + currentURL + "/data/tables");
+                console.log("URL: " + currentURL + "/api/tables");
                 console.log("------------------------------------");
                 // Here we then log the NYTData to console, where it will show up as an object.
                 console.log(tableData);
@@ -83,11 +85,11 @@
         // We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
         var currentURL = window.location.origin;
         // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-        $.ajax({url: currentURL + "/data/waitlist", method: "GET"})
+        $.ajax({url: currentURL + "/api/waitlist", method: "GET"})
             .done(function(waitlistData) {
                 // Here we are logging the URL so we have access to it for troubleshooting
                 console.log("------------------------------------");
-                console.log("URL: " + currentURL + "/data/waitlist");
+                console.log("URL: " + currentURL + "/api/waitlist");
                 console.log("------------------------------------");
                 // Here we then log the NYTData to console, where it will show up as an object.
                 console.log(waitlistData);
@@ -120,6 +122,5 @@
     // ==========================================
     runTableQuery();
     runWaitListQuery();
-    </script>
-</body>
+</script>
 </html>
