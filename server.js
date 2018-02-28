@@ -23,8 +23,9 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
-
+//requires the routes allowing us to go between apis/pages
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
 
 
 // =============================================================================
