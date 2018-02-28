@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container bg-danger">
         <div class="jumbotron">
             <h1 class="text-center"><span class="glyphicon glyphicon-fire"></span> Hot Restaurant</h1>
             <hr>
@@ -17,7 +17,7 @@
             <br>
             <div class="text-center">
                 <a href="/tables"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
-                <a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+                <a href="/index"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
             </div>
         </div>
         <div class="row">
@@ -53,12 +53,15 @@
         </div>
         <footer class="footer">
           <div class="container">
-            <p><a href="/data/tables">API Table Link</a> | <a href="/data/waitlist">API Wait List</a> </p>
+            <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/Code4GG/HotRestaurant/tree/master">Github Repo</a></p>
           </div>
         </footer>
     </div>
-    <script>
-        // In this code below we create the Front-end Javascript which "POSTS" our form data to our express server.
+</body>
+</html>
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<script type="text/javascript">
+    // In this code below we create the Front-end Javascript which "POSTS" our form data to our express server.
     // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
     // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
     // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
@@ -78,7 +81,7 @@
         // Here we get the location of the root page.
         // We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
         var currentURL = window.location.origin;
-        $.post(currentURL + "/data/tables", newReservation,
+        $.post(currentURL + "/api/tables", newReservation,
         function(data){
             // If a table is available... tell user they are booked.
             if(data == true){
@@ -96,7 +99,4 @@
         });
 return false;
 });
-    </script>
-</body>
-</html>
-
+</script>
