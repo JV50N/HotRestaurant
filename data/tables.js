@@ -1,4 +1,4 @@
-[
+const tableArr = [
 	{
         "customerName": "Ahmed",
         "customerEmail": "ahmed@example.com",
@@ -23,4 +23,6 @@
         "customerID": "Jason69",
         "phoneNumber": "696-969-6969"
     }
-]
+];
+
+module.exports = tableArray;
